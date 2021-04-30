@@ -17,13 +17,15 @@ describe('[fizzbuzz]', () => {
         expect(result).toBe("fizz");
     });
 
-    it("should return buzz when input is 5", () => {
-        const result = example.execute(5);
+    it.each([[5], [10], [20]])
+    ('should return buzz when input is multiple of 5', (input: number) =>{
+        const result = example.execute(input);
         expect(result).toBe("buzz");
     });
 
-    it("should return buzz when input is 10", () => {
-        const result = example.execute(10);
-        expect(result).toBe("buzz");
+    it.each([[15], [30], [45]])
+    ('should return fizzbuzz when input is multiple of 3 and 5', (input: number) =>{
+        const result = example.execute(input);
+        expect(result).toBe("fizzbuzz");
     });
 })
