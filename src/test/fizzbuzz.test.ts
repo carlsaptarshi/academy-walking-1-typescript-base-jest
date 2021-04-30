@@ -16,4 +16,14 @@ describe('[fizzbuzz]', () => {
         const result = example.execute(input);
         expect(result).toBe("fizz");
     });
+
+    it("should return buzz when input is 5", () => {
+        const result = example.execute(5);
+        expect(result).toBe("buzz");
+    });
+
+    it("should return buzz when input is 10", () => {
+        const result = example.execute(10);
+        expect(result).toBe("buzz");
+    });
 })
