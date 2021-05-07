@@ -10,4 +10,9 @@ describe('string calculator tests', () => {
         const stringCalculator = new StringCalculator();
         expect(stringCalculator.add("1")).toBe(1);
     });
+
+    it("should take in '2' and return 2", () => {
+        const stringCalculator = new StringCalculator();
+        expect(stringCalculator.add("2")).toBe(2);
+    });
 })
