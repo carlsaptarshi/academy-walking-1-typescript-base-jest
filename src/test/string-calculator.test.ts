@@ -17,7 +17,12 @@ describe('string calculator tests', () => {
         expect(stringCalculator.add(input)).toBe(expected);
     });
 
-    it("should take in '1,2,3' and return 6", () => {
-        expect(stringCalculator.add("1,2,3")).toBe(6)
-    })
+    it.each([["1,2,3", 6], ["2,3,4", 9], ["-1,8,1", 8], ["1,1,1,1", 4]])
+    ("should take in a comma separated string with multiple numbers of value '%s' and return %d", (input: string, expected: number) => {
+        expect(stringCalculator.add(input)).toBe(expected);
+    });
+
+    it("should take '1\n2,3' and return 6", () => {
+        expect(stringCalculator.add("1\n2,3")).toBe(6)
+    });
 });
