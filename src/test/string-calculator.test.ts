@@ -26,4 +26,8 @@ describe('string calculator tests', () => {
     ("should take in a comma and/or newline separated string with multiple numbers of value '%s' and return %d", (input: string, expected: number) => {
         expect(stringCalculator.add(input)).toBe(expected);
     });
+
+    it("should take '//;\\n1;2\' and return 3", () => {
+        expect(stringCalculator.add("//;\n1;2")).toBe(3);
+    });
 });
