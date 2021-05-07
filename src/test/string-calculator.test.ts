@@ -16,4 +16,8 @@ describe('string calculator tests', () => {
     ("should take in a comma separated string of value '%s' and return %d", (input: string, expected: number) => {
         expect(stringCalculator.add(input)).toBe(expected);
     });
+
+    it("should take in '1,2,3' and return 6", () => {
+        expect(stringCalculator.add("1,2,3")).toBe(6)
+    })
 });
