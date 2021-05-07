@@ -27,15 +27,12 @@ describe('string calculator tests', () => {
         expect(stringCalculator.add(input)).toBe(expected);
     });
 
-    it("should take '//;\\n1;2\' and return 3", () => {
-        expect(stringCalculator.add("//;\n1;2")).toBe(3);
+    it.each([["//;\n1;2", 3], ["//=\n1=2=3", 6], ["1\n2\n3", 6], ["//.\n1.4.3", 8]])
+    ("should take in a string with a delimiter prefix of value '%s' and return %d", (input: string, expected: number) => {
+        expect(stringCalculator.add(input)).toBe(expected);
     });
 
-    it("should take '//=\\n1=2=3\' and return 6", () => {
-        expect(stringCalculator.add("//=\n1=2=3")).toBe(6);
-    });
-
-    it("should take '//.\\n1.4.3\' and return 8", () => {
-        expect(stringCalculator.add("//.\n1.4.3")).toBe(8);
+    it("should raise an exception with '-1' if '-1' is passed", () => {
+        expect(() => stringCalculator.add("-1")).toThrow("negatives not allowed -1");
     });
 });
