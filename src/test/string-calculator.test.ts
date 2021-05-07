@@ -1,18 +1,14 @@
 import {StringCalculator} from "../main/string-calculator";
 
 describe('string calculator tests', () => {
-    it("should take in an empty string and return 0", () => {
-        const stringCalculator = new StringCalculator();
-        expect(stringCalculator.add("")).toBe(0);
-    });
+    let stringCalculator: StringCalculator;
 
-    it("should take in '1' and return 1", () => {
-        const stringCalculator = new StringCalculator();
-        expect(stringCalculator.add("1")).toBe(1);
-    });
+    beforeEach(() => {
+        stringCalculator = new StringCalculator();
+    })
 
-    it("should take in '2' and return 2", () => {
-        const stringCalculator = new StringCalculator();
-        expect(stringCalculator.add("2")).toBe(2);
+    it.each([["", 0], ["0", 0], ["1", 1], ["2", 2]])
+    ("should take in a string of value '%s' and return %d", (input, expected) => {
+        expect(stringCalculator.add(input)).toBe(expected);
     });
 })
