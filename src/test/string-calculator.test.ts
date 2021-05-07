@@ -19,4 +19,8 @@ describe('string calculator tests', () => {
     it("should take '2,3' and return 5", () => {
         expect(stringCalculator.add("2,3")).toBe(5);
     });
+
+    it("should take '3,4' and return 7", () => {
+        expect(stringCalculator.add("3,4")).toBe(7);
+    });
 });
