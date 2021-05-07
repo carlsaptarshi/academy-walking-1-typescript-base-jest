@@ -3,6 +3,9 @@ export class StringCalculator {
         if(inputString === "") {
             return 0;
         }
+        if(inputString === "0") {
+            return 0;
+        }
         if(inputString==="1"){
             return 1;
         }
