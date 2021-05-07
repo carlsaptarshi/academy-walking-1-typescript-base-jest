@@ -8,19 +8,12 @@ describe('string calculator tests', () => {
     })
 
     it.each([["", 0], ["0", 0], ["1", 1], ["2", 2]])
-    ("should take in a string of value '%s' and return %d", (input, expected) => {
+    ("should take in a string of value '%s' and return %d", (input: string, expected: number) => {
         expect(stringCalculator.add(input)).toBe(expected);
     });
 
-    it("should take '1,2' and return 3", () => {
-        expect(stringCalculator.add("1,2")).toBe(3);
-    });
-
-    it("should take '2,3' and return 5", () => {
-        expect(stringCalculator.add("2,3")).toBe(5);
-    });
-
-    it("should take '3,4' and return 7", () => {
-        expect(stringCalculator.add("3,4")).toBe(7);
+    it.each([["1,2", 3], ["2,3", 5], ["3,4", 7], ["10, 4", 14]])
+    ("should take in a comma separated string of value '%s' and return %d", (input: string, expected: number) => {
+        expect(stringCalculator.add(input)).toBe(expected);
     });
 });
