@@ -22,15 +22,8 @@ describe('string calculator tests', () => {
         expect(stringCalculator.add(input)).toBe(expected);
     });
 
-    it("should take '1\\n2,3' and return 6", () => {
-        expect(stringCalculator.add("1\n2,3")).toBe(6)
-    });
-
-    it("should take '1,2\\n3' and return 6", () => {
-        expect(stringCalculator.add("1,2\n3")).toBe(6)
-    });
-
-    it("should take '1\\n2\\n3' and return 6", () => {
-        expect(stringCalculator.add("1\n2\n3")).toBe(6)
+    it.each([["1\n2,3", 6], ["1,2\n3", 6], ["1\n2\n3", 6], ["2\n3\n3", 8]])
+    ("should take in a comma and/or newline separated string with multiple numbers of value '%s' and return %d", (input: string, expected: number) => {
+        expect(stringCalculator.add(input)).toBe(expected);
     });
 });

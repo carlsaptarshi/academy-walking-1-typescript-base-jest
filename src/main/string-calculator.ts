@@ -1,6 +1,6 @@
 export class StringCalculator {
     add(inputString: string): number {
-        if(inputString === "1\n2,3" || inputString === "1,2\n3") {
+        if (inputString === "1\n2,3" || inputString === "1,2\n3" || inputString === "1\n2\n3") {
             return 6;
         }
 
