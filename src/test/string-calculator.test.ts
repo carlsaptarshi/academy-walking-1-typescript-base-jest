@@ -29,4 +29,8 @@ describe('string calculator tests', () => {
     it("should take '1,2\\n3' and return 6", () => {
         expect(stringCalculator.add("1,2\n3")).toBe(6)
     });
+
+    it("should take '1\\n2\\n3' and return 6", () => {
+        expect(stringCalculator.add("1\n2\n3")).toBe(6)
+    });
 });
