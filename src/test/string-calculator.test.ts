@@ -30,4 +30,8 @@ describe('string calculator tests', () => {
     it("should take '//;\\n1;2\' and return 3", () => {
         expect(stringCalculator.add("//;\n1;2")).toBe(3);
     });
+
+    it("should take '//=\\n1=2=3\' and return 6", () => {
+        expect(stringCalculator.add("//=\n1=2=3")).toBe(6);
+    });
 });
