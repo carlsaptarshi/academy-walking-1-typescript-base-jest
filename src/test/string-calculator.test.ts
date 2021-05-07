@@ -34,4 +34,8 @@ describe('string calculator tests', () => {
     it("should take '//=\\n1=2=3\' and return 6", () => {
         expect(stringCalculator.add("//=\n1=2=3")).toBe(6);
     });
+
+    it("should take '//.\\n1.4.3\' and return 8", () => {
+        expect(stringCalculator.add("//.\n1.4.3")).toBe(8);
+    });
 });
