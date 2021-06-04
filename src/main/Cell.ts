@@ -26,25 +26,16 @@ export const isAdjacentSouthWest = (cell1: Cell, cell2: Cell) => cell1.x - 1 ===
 
 export const isAdjacentNorthWest = (cell1: Cell, cell2: Cell) => cell1.x - 1 === cell2.x && cell1.y + 1 === cell2.y;
 
+const hasAdjacentCells = (cell: Cell, otherCell: Cell): boolean =>
+    isAdjacentNorth(cell, otherCell)
+    || isAdjacentNorthEast(cell, otherCell)
+    || isAdjacentEast(cell, otherCell)
+    || isAdjacentSouthEast(cell, otherCell)
+    || isAdjacentSouth(cell, otherCell)
+    || isAdjacentSouthWest(cell, otherCell)
+    || isAdjacentWest(cell, otherCell)
+    || isAdjacentNorthWest(cell, otherCell);
+
 export const numberOfAdjacentCells = (cell: Cell, otherCells: Cell[]) => {
-    let numAdjCells = 0;
-    otherCells.forEach(item => {
-        const v = [
-            isAdjacentNorth(cell, item),
-            isAdjacentNorthEast(cell, item),
-            isAdjacentEast(cell, item),
-            isAdjacentSouthEast(cell, item),
-            isAdjacentSouth(cell, item),
-            isAdjacentSouthWest(cell, item),
-            isAdjacentWest(cell, item),
-            isAdjacentNorthWest(cell, item)
-        ].filter(item => item).length;
-
-        if(v ===1 ){
-            numAdjCells+=1
-        }
-    })
-
-    return numAdjCells;
-
+    return otherCells.reduce((acc, otherCell) => hasAdjacentCells(cell, otherCell) ? acc + 1 : acc, 0);
 }

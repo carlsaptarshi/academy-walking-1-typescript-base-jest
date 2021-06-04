@@ -97,8 +97,18 @@ describe('game of life test', () => {
             const result = numberOfAdjacentCells(cell1, [cell2N, cell3W, cell4E]);
             let expectedNumberOfAdjacentCells = 3;
             expect(result).toBe(expectedNumberOfAdjacentCells);
-        })
+        });
 
+        it("should count the number of adjacent cells for a given cell", () =>{
+            const cell1 = createCell(5,5);
+            const cell2N = createCell(5,6);
+            const cell3W = createCell(14,15);
+            const cell4E = createCell(16,15);
+
+            const result = numberOfAdjacentCells(cell1, [cell2N, cell3W, cell4E]);
+            let expectedNumberOfAdjacentCells = 1;
+            expect(result).toBe(expectedNumberOfAdjacentCells);
+        });
     });
 
 })
